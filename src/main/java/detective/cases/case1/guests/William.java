@@ -4,7 +4,7 @@ import detective.cases.case1.wines.Glass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.*;
 
-public class William<Wine> {
+public abstract class William<Wine> {
      @Autowired
     private Glass<Wine> glass;
 
