@@ -10,22 +10,14 @@
 	</parent>
 
 	<groupId>detective.cases</groupId>
-	<artifactId>case1</artifactId>
-	<name>case1</name>
+	<artifactId>detective-cases</artifactId>
+	<name>detective-cases</name>
 
-	<properties>
-		<java.version>17</java.version>
-	</properties>
+	<packaging>pom</packaging>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
+	<modules>
+		<module>case1</module>
+		<module>case2</module>
+	</modules>
 
 </project>
