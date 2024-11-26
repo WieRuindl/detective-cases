@@ -17,13 +17,13 @@ public class Journalists {
     @EventListener(ContextRefreshedEvent.class)
     public void writeAnArticle() {
         System.out.println("The philanthropist makes a donation:");
-        System.out.println(philanthropist.makeDonation());
-        System.out.println();
+        philanthropist.makeDonation();
+
         System.out.println("Museum receives the delivery:");
-        System.out.println(museum.receiveDelivery());
-        System.out.println();
+        museum.receiveDelivery();
+
         System.out.println("Calling to manager to ask if they have the missing painting:");
-        System.out.println(deliveryService.callToManager("http://javapuzzlers.com"));
+        deliveryService.callToManager("http://javapuzzlers.com");
     }
 
 }

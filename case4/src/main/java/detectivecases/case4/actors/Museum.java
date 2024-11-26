@@ -16,12 +16,16 @@ public class Museum {
 
     private final DeliveryService deliveryService;
 
-    public String receiveDelivery() {
-        Safebox safebox = deliveryService.receiveDelivery();
+    public void receiveDelivery() {
+        Safebox safebox = deliveryService.giveLandscapesToMuseum();
         Set<URL> landscapes = safebox.getBriefcases().stream()
                 .map(Briefcase::getLandscape)
                 .collect(Collectors.toSet());
-        return String.format("We unwrapped these: %s. Safebox sealed: %s", landscapes, safebox.isSealed());
+        String statement =  String.format(
+                "We unwrapped these: %s. Safebox sealed: %s",
+                landscapes, safebox.isSealed()
+        );
+        System.out.println("Museum: " + statement);
     }
 
 }

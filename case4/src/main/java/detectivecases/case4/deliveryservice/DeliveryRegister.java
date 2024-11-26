@@ -15,4 +15,9 @@ import java.util.Map;
 public class DeliveryRegister {
     private Safebox safebox;
     private Map<String, Briefcase> briefcases = new HashMap<>();
+
+    boolean check(String landscape) {
+        var briefcase = briefcases.get(landscape);
+        return safebox.getBriefcases().contains(briefcase);
+    }
 }

@@ -20,7 +20,7 @@ public class DeliveryService {
     private final EntityManager manager;
     private final DeliveryRegister register;
 
-    public String sendDelivery(Collection<URL> landscapes) {
+    public void takeLandscapesFromPhilanthropist(Collection<URL> landscapes) {
         Set<Briefcase> briefcases = new HashSet<>();
         for (URL landscape : landscapes) {
             Briefcase briefcase = Briefcase.open().landscape(landscape).close();
@@ -32,17 +32,15 @@ public class DeliveryService {
         Safebox safebox = Safebox.open().briefcases(briefcases).lock();
         manager.persist(safebox);
         register.setSafebox(safebox);
-
-        return String.format("Safebox with briefcases: %s sent to museum", safebox.getBriefcases());
     }
 
-    public Safebox receiveDelivery() {
+    public Safebox giveLandscapesToMuseum() {
         return manager.find(Safebox.class, register.getSafebox().getId());
     }
 
-    public boolean callToManager(String landscape) {
-        Safebox safebox = register.getSafebox();
-        Briefcase briefcase = register.getBriefcases().get(landscape);
-        return safebox.getBriefcases().contains(briefcase);
+    public void callToManager(String landscape) {
+        System.out.println("Manager: Do we have the landscape " + landscape + "?");
+        boolean contains = register.check(landscape);
+        System.out.println("Manager: " + contains);
     }
 }

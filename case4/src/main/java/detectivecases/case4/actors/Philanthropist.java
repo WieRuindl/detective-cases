@@ -16,12 +16,13 @@ public class Philanthropist {
     private final DeliveryService deliveryService;
 
     @SneakyThrows
-    public String makeDonation() {
+    public void makeDonation() {
         Collection<URL> uniqueRareLandscapes = Arrays.asList(
                 new URL("http://javapuzzlers.com"),
                 new URL("http://seattlehadassah.org")
         );
-        return deliveryService.sendDelivery(uniqueRareLandscapes);
+        System.out.println("Philanthropist: I gift these to the city: " + uniqueRareLandscapes);
+        deliveryService.takeLandscapesFromPhilanthropist(uniqueRareLandscapes);
     }
 
 }
